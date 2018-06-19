@@ -1,15 +1,15 @@
-[
-  {
-    "id": 1,
-    "name": "Leanne Graham",
-    "username": "Bret",
-    "email": "Sincere@april.biz",
-  },
-  {
-    "id": 2,
-    "name": "ravi bhaug",
-    "username": "ravibhaug",
-    "email": "ravibhaug@gmail.com",
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "hello"
+    },
+    {
+      "id": 2,
+      "title": "World"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
   }
-  
-]
+}
