@@ -13,7 +13,7 @@ gulp.task('sass', function () {
 });
 
 //minify css
-gulp.task('css', function () {
+gulp.task('minCss', function () {
     return gulp.src('./dist/css/*.css')
         .pipe(uglifycss({
             "uglyComments": true
@@ -22,22 +22,26 @@ gulp.task('css', function () {
 });
 
 //minify js
-gulp.task('jsMinify', function () {
+gulp.task('jsMin', function () {
     return gulp.src('./src/js/*.js')
         .pipe(uglify())
         .pipe(gulp.dest('./dist/js'));
 });
 
 //watch changes, reload browser
-gulp.task('serve', ['sass', 'css', 'jsMinify'], function () {
+gulp.task('serve', ['sass', 'minCss', 'jsMin'], function () {
 
     browserSync.init({
         server: "./dist"
     });
 
+    // browserSync.init({
+    //     proxy   : "http://localhost/esok/dist/"
+    // });
+
     gulp.watch("./src/scss/*.scss", ['sass']).on('change', browserSync.reload);
-    gulp.watch('./src/js/*.js', ['jsMinify']).on('change', browserSync.reload);
-    gulp.watch('./dist/css/*.css', ['css']);
+    gulp.watch('./src/js/*.js', ['jsMin']).on('change', browserSync.reload);
+    gulp.watch('./dist/css/*.css', ['minCss']);
     gulp.watch("./dist/*.html").on('change', browserSync.reload);
 });
 
