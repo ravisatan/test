@@ -43,6 +43,7 @@ gulp.task('serve', ['sass', 'minCss', 'jsMin'], function () {
     gulp.watch('./src/js/*.js', ['jsMin']).on('change', browserSync.reload);
     gulp.watch('./dist/css/*.css', ['minCss']);
     gulp.watch("./dist/*.html").on('change', browserSync.reload);
+    //gulp.watch("./dist/**").on('change', browserSync.reload); //for editing any file in the dir
 });
 
 //run all tasks
