@@ -50,7 +50,7 @@ if($_POST['btn_submit']=="Submit")
     $message=$_POST['txt_comment'];
     $string = strtoupper($_SESSION['string']);
     $userstring = strtoupper($_POST['userstring']);
-    $response = $_POST["g-recaptcha-response"];
+    $response=verify_captcha($secretkey, $_POST["g-recaptcha-response"]);
     
     $mailcontent="";
     
