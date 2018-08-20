@@ -18,7 +18,29 @@ $verify = file_get_contents($url, false, $context);
 $captcha_success = json_decode($verify);
 return $captcha_success->success;
 
+}
 
+function verify_captcha($secretkey, $response){
+    
+$curl = curl_init();
+curl_setopt_array($curl, array(
+    CURLOPT_RETURNTRANSFER => 1,
+    CURLOPT_URL => 'https://www.google.com/recaptcha/api/siteverify',
+    CURLOPT_POST => 1,
+    CURLOPT_POSTFIELDS => array(
+        'secret' => $secretkey,
+        'response' => $response
+    )
+));
+$response = curl_exec($curl);
+curl_close($curl);
+
+//var_dump($response);
+if(strpos($response, '"success": true') !== FALSE) {
+    return true;
+} else {
+    return false;
+}
 }
 
 
