@@ -50,8 +50,8 @@ function contact2($lang, $prod_id)
 
 <?
 require_once('recaptchalib.php');
-$sitekey = "6LeaBGUUAAAAALWr7lxrQBTPS9SPvLB3fmVlRG5T";
-$secretkey = "6LeaBGUUAAAAAEiC3gOBG9RZnnmi2joCqsvWbxf6";
+$sitekey = "6Le7zmoUAAAAAOiSmzhQR9om-i2AU_SbxrJ6mfm5";
+$secretkey = "6Le7zmoUAAAAAAZCUXRHNeokzpVsIdRKkVAbQnri";
 
 if($_POST['btn_submit']=="Submit")
 {
